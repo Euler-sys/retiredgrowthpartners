@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link,useLocation } from "react-router-dom";
 import {
   FaHome,
@@ -15,7 +15,7 @@ const BottomNav2: React.FC = () => {
  
  
   const location = useLocation();
-
+const [error, setError] = useState(false);
 
 
  
@@ -36,10 +36,51 @@ const BottomNav2: React.FC = () => {
             <span>History</span>
           </Link>
         
-          <Link to="/send" className="flex flex-col items-center text-sm text-gray-600 hover:text-blue-600">
-            <FaCreditCard className={`text-xl ${location.pathname === "/cards" && "text-blue-600"}`} />
-            <span>Withdraw</span>
-          </Link>
+         <button
+  onClick={() => setError(true)}
+  className="flex flex-col items-center text-sm text-gray-600 hover:text-blue-600"
+>
+  <FaCreditCard className="text-xl" />
+  <span>Withdraw</span>
+</button>
+
+{error && (
+<div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm">
+    <h2 className="text-lg font-semibold text-red-600">
+      Contact Your Financial Advisor
+    </h2>
+
+    <p className="text-gray-600 mt-2">
+      Assistance Required
+    </p>
+
+    <p className="text-gray-600 mt-2 text-sm">
+      To proceed with your request, please contact your assigned financial
+      advisor for further assistance and guidance.
+    </p>
+
+    <a
+      href="https://wa.me/+19012648778?text=Hello,%20I%20need%20assistance%20with%20my%20account"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <button className="w-full mb-6 mt-6 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+        Contact Financial Advisor
+      </button>
+    </a>
+
+    <div className="mt-4">
+      <button
+        onClick={() => setError(false)}
+        className="w-full px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+</div>
+)}
           <Link to="/settings" className="flex flex-col items-center text-sm text-gray-600 hover:text-blue-600">
             <FaCog className={`text-xl ${location.pathname === "/settings" && "text-blue-600"}`} />
             <span>Settings</span>

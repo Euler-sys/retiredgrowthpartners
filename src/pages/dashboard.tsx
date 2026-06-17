@@ -40,7 +40,7 @@ const Dashboard = () => {
   const [userImage, setUserImage] = useState<string>("");
   // const [showBalance, setShowBalance] = useState<boolean>(true);
   const [userName, setUserName] = useState<string>("");
-  const [accountType, setAccountType] = useState<string>("");
+  // const [accountType, setAccountType] = useState<string>("");
   const [subType, setSubType] = useState<string>("");
   // const [userEmail, setUserEmail] = useState<string>("");
   const [userLastName, setLastName] = useState<string>("");
@@ -107,7 +107,7 @@ const Dashboard = () => {
       setUserName(user.firstName || "");
       setLastName(user.lastName || "");
       setMiddleName(user.middleName || "");
-      setAccountType(user.accountType || "Nll");
+      // setAccountType(user.accountType || "Nll");
       setSubType(user.accountSubType || "");
       // setUserEmail(user.email || "");
       setAcctNumber(user.accountNumber || "");
