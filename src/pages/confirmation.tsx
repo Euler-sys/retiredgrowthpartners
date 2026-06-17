@@ -93,7 +93,7 @@ const Confirmation: React.FC = () => {
 </div>
       ) : (
         <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md text-center z-10">
-        <div className="m-auto w-[200px] flex justify-center mb-4"> <img src={logo} alt=""  /> </div>  
+        {/* <div className="m-auto w-[200px] flex justify-center mb-4"> <img src={logo} alt=""  /> </div>   */}
           {/* <img
             src={userImage}
             alt="User Profile"
