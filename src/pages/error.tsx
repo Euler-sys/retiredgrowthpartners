@@ -26,7 +26,7 @@ const PaymentOptions: React.FC = () => {
 
         <p className="text-gray-700 mb-4">
           You’re one step away from activating your mining plan with{" "}
-          <strong>Elite Alpha Capital</strong>.
+          <strong>Retirement Growth Partners</strong>.
         </p>
 
         <p className="text-gray-700 mb-4">
@@ -81,8 +81,8 @@ const PaymentOptions: React.FC = () => {
         </p>
 
         <p className="text-xs text-gray-500 mb-6">
-          ⛏️ Powered by Elite Alpha Capital's global mining infrastructure
-          across North America and Europe.
+          ⛏️ Powered by Retirement Growth Partners's global mining
+          infrastructure across North America and Europe.
         </p>
       </div>
 

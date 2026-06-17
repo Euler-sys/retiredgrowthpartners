@@ -4,6 +4,8 @@ import * as yup from "yup";
 import { addUser } from "./api";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom"; // For navigation
+import Header from "../Home/header";
+import Footer from "../Home/footer";
 
 const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/dx90y9zdx/upload`;
 const UPLOAD_PRESET = "holtback"; // Replace with your Cloudinary preset
@@ -195,9 +197,11 @@ const SignUp = () => {
   };
 
   return (
-    <div className="bg-black">
+    <>
+    <Header/>
+    <div className="bg-black ">
        <div className="max-w-lg mx-auto p-8 bg-black shadow-md rounded-lg">
-      <h2 className="text-2xl font-semibold text-center mb-6 text-white">Create an  Account</h2>
+      <h2 className="text-2xl font-semibold text-center mb-6 text-white mt-[140px]">Create an  Account</h2>
 
 
 <p className="text-white text-center mb-7">Already have an account? <Link className="text-green-500 underline" to={'/login'}>Login Here</Link> </p>
@@ -429,6 +433,7 @@ const SignUp = () => {
 
     </div>
     </div>
+    <Footer/></>
    
   );
 };

@@ -236,7 +236,7 @@ const Dashboard = () => {
                 </h3>
 
                 {btcValue && (
-                  <p className="text-sm mt-2 text-white opacity-90">
+                  <p className="text-sm mt-2 hidden text-white opacity-90">
                     ≈ {btcValue} BTC
                   </p>
                 )}
@@ -312,12 +312,16 @@ const Dashboard = () => {
               <div>
                 <FaArrowAltCircleRight className="text-blue-600" />
               </div>
-              <div>
-                <p className="font-medium">Elite Alpha Capital Mining Plan</p>
-                <p className="text-sm text-gray-500">
-                  Start earning crypto daily with automated mining solutions
-                </p>
-              </div>
+            <div>
+  <p className="font-medium">
+    Retirement Growth Partners Investment Plan
+  </p>
+
+  <p className="text-sm text-gray-500">
+    Build your future with strategic investment solutions designed for
+    long-term wealth growth and retirement security.
+  </p>
+</div>
               <span className="text-xl text-gray-400">&gt;</span>
             </div>
 
@@ -331,12 +335,12 @@ const Dashboard = () => {
           <div className="bg-white rounded-xl shadow overflow-hidden">
             {/* Header */}
             <div className="bg-blue-800 text-white px-5 py-3 text-xl font-semibold">
-              Elite Alpha Capital
+              Retirement Growth Partners
             </div>
 
             {/* Main Content */}
             <div className="p-4">
-              <p className="text-sm text-gray-500">Crypto Wallet – BTC-5542</p>
+              <p className="text-sm text-gray-500">Available Balance - 5542</p>
               <div className="flex justify-between items-center mt-1">
                 <p className="text-2xl font-bold">
                   {new Intl.NumberFormat("en-US", {
@@ -457,15 +461,14 @@ const Dashboard = () => {
                   </table>
                 </div>
 
-                <p className="text-xs text-gray-500 text-center">
-                  This dashboard displays the most up-to-date status of your
-                  earnings with Elite Alpha Capital's Crypto Mining Program.
-                  <br />
-                  Your mining contribution has been securely verified and
-                  processed on our blockchain network. For assistance or to
-                  request a payout, please contact your assigned account
-                  manager.
-                </p>
+              <p className="text-xs text-gray-500 text-center">
+  This dashboard provides the latest overview of your investment activity
+  and portfolio performance with Retirement Growth Partners.
+  <br />
+  Your investment account status has been securely updated and verified.
+  For assistance, account management, or withdrawal requests, please
+  contact your dedicated support representative.
+</p>
               </div>
             </div>
           )}

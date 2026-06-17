@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MailWarning, ShieldAlert } from "lucide-react";
+import { CheckCircle, Info, MailWarning, ShieldAlert } from "lucide-react";
 import BottomNav from "../pages/stickyNav";
 import BottomNav2 from "../pages/bottomnav2";
 import SupportBot from "./support";
@@ -13,61 +13,74 @@ type Message = {
   date: string;
   unread: boolean;
 };
-
 const messages: Message[] = [
   {
     id: 1,
-    icon: <ShieldAlert className="text-red-600" size={24} />,
-    subject: "Withdrawal Restricted: Tier-2 Clearance Required",
+    icon: <ShieldAlert className="text-blue-600" size={24} />,
+    subject: "Account Security Update",
     preview:
-      "Your Elite Alpha account requires Tier-2 Unlock to enable withdrawals and outbound transactions.",
-    full: `🚫 Withdrawal Access Restricted – Tier-2 Clearance Required.
+      "Review your account security settings and make sure your information is up to date.",
+    full: `🔐 Account Security Update.
 
-To proceed with withdrawals or external transfers, your account must meet Tier-2 compliance. A reserve unlock transaction is required to complete this process. contact support for more details`,
+We've made improvements to account security and monitoring. 
+Please review your account settings regularly to keep your profile information updated and secure.
+
+If you need assistance, contact our support team.`,
     date: "July 5, 2025",
     unread: true,
   },
   {
     id: 2,
     icon: <MailWarning className="text-yellow-500" size={24} />,
-    subject: "Action Required: KYC Verification Incomplete",
+    subject: "KYC Verification Reminder",
     preview:
-      "Your KYC verification is still pending. Update your documents to continue full access.",
-    full: `We've noticed your KYC (Know Your Customer) verification is incomplete. 
-To avoid any disruption in your mining or banking features, please log in and upload the necessary documents.`,
+      "Complete your verification to access all available account features.",
+    full: `📄 KYC Verification Reminder.
+
+Your verification process is still incomplete. 
+Please update your required information to ensure your account remains fully active and accessible.
+
+Thank you for completing your verification.`,
     date: "July 3, 2025",
     unread: true,
   },
-  //   {
-  //     id: 3,
-  //     icon: <CreditCard className="text-green-600" size={24} />,
-  //     subject: "Virtual Debit Card Approved",
-  //     preview: "Your Elite Alpha virtual debit card has been approved and will be issued shortly.",
-  //     full: `Great news! Your Elite Alpha Capital virtual debit card has been successfully approved.
-  // The card will be linked to your wallet and issued within 2–3 business days.`,
-  //     date: "July 1, 2025",
-  //     unread: true,
-  //   },
-  //   {
-  //     id: 4,
-  //     icon: <Info className="text-blue-500" size={24} />,
-  //     subject: "New Update: Mining & Wallet Insights",
-  //     preview: "Monitor earnings and spending with the new performance dashboard.",
-  //     full: `A new analytics feature is now available on your Elite Alpha dashboard.
-  // Track your mining performance, wallet activity, and spending insights in real-time.`,
-  //     date: "June 29, 2025",
-  //     unread: false,
-  //   },
-  //   {
-  //     id: 5,
-  //     icon: <CheckCircle className="text-green-500" size={24} />,
-  //     subject: "KYC Verified — Full Access Granted",
-  //     preview: "Your identity verification is now complete. Enjoy unrestricted access to all features.",
-  //     full: `Congratulations! Your KYC verification has been successfully completed.
-  // You now have full access to mining rewards, banking services, and referral payouts within Elite Alpha Capital.`,
-  //     date: "June 25, 2025",
-  //     unread: false,
-  //   },
+  {
+    id: 3,
+    icon: <CheckCircle className="text-green-500" size={24} />,
+    subject: "Account Verified Successfully",
+    preview: "Your account verification has been completed successfully.",
+    full: `✅ Account Verification Complete.
+
+Your account has been successfully verified.
+You can now continue using all available account features and services.`,
+    date: "July 1, 2025",
+    unread: false,
+  },
+  {
+    id: 4,
+    icon: <Info className="text-blue-500" size={24} />,
+    subject: "New Dashboard Update",
+    preview:
+      "A new dashboard experience is now available with improved insights.",
+    full: `📊 Dashboard Update.
+
+We've introduced improvements to your dashboard experience.
+You can now view your account activity and updates more easily.`,
+    date: "June 29, 2025",
+    unread: false,
+  },
+  {
+    id: 5,
+    icon: <CheckCircle className="text-green-600" size={24} />,
+    subject: "Welcome to RGP",
+    preview: "Your account is ready. Explore available features and services.",
+    full: `🎉 Welcome to RGP.
+
+Your account setup is complete.
+You can now explore the available features and manage your account from your dashboard.`,
+    date: "June 25, 2025",
+    unread: false,
+  },
 ];
 
 const InboxPage = () => {

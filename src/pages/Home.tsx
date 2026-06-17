@@ -8,7 +8,7 @@ import SupportBot from '../components/support';
 import CoinGeckoWidget from '../components/coingecko';
 import PlatformOverview from '../components/PlatformOverview';
 import TradingWidgets from '../components/tradingwidgets';
-import InvestmentPlans from '../components/investmentplan';
+// import InvestmentPlans from '../components/investmentplan';
 import Reviews from '../components/reviews';
 
 const Home: React.FC = () => {
@@ -29,7 +29,7 @@ const Home: React.FC = () => {
       <RatesSection />
       <PlatformOverview/>
       <TradingWidgets/>
-      <InvestmentPlans/>
+      {/* <InvestmentPlans/> */}
       <SupportBot />
       <Footer />
     </>

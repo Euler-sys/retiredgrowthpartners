@@ -4,7 +4,7 @@ import {
   FaHome,
   FaHistory,
  
-  FaCreditCard,
+  // FaCreditCard,
   FaCog,
  
 } from "react-icons/fa";
@@ -35,10 +35,10 @@ const BottomNav2: React.FC = () => {
             <span>History</span>
           </Link>
         
-          <Link to="/overview" className="flex flex-col items-center text-sm text-gray-600 hover:text-blue-600">
+          {/* <Link to="/overview" className="flex flex-col items-center text-sm text-gray-600 hover:text-blue-600">
             <FaCreditCard className={`text-xl ${location.pathname === "/cards" && "text-blue-600"}`} />
             <span>Invest</span>
-          </Link>
+          </Link> */}
           <Link to="/settings" className="flex flex-col items-center text-sm text-gray-600 hover:text-blue-600">
             <FaCog className={`text-xl ${location.pathname === "/settings" && "text-blue-600"}`} />
             <span>Settings</span>

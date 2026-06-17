@@ -1,59 +1,29 @@
-// SupportBot.tsx
-
-import { useEffect } from "react";
-import { FaEnvelope } from "react-icons/fa";
-
-declare global {
-  interface Window {
-    _smartsupp?: any;
-    smartsupp?: any;
-  }
-}
+import { FaWhatsapp } from "react-icons/fa";
 
 const SupportBot = () => {
-  useEffect(() => {
-    if (typeof window === "undefined") return;
+  const whatsappNumber = "+19012648778"; // Replace with your WhatsApp number
 
-    // Prevent loading twice
-    if (document.getElementById("smartsupp-script")) return;
-
-    window._smartsupp = window._smartsupp || {};
-    window._smartsupp.key =
-      "930035d1a86d17b0d283689440aee2350e26cbef";
-
-    const script = document.createElement("script");
-    script.id = "smartsupp-script";
-    script.async = true;
-    script.src = "https://www.smartsuppchat.com/loader.js";
-    script.charset = "utf-8";
-
-    document.body.appendChild(script);
-
-    return () => {
-      const existingScript = document.getElementById(
-        "smartsupp-script"
-      );
-      if (existingScript) {
-        existingScript.remove();
-      }
-    };
-  }, []);
+  const message = encodeURIComponent(
+    "Hello, I need assistance."
+  );
 
   return (
-    <div className="fixed bottom-[100px] left-5 z-[9999] flex flex-col items-center space-y-1">
+    <div className="fixed bottom-5 right-5 z-[9999] flex flex-col items-center">
       <button
         onClick={() =>
-          (window.location.href =
-            "mailto:elitealphacapital@outlook.com")
+          window.open(
+            `https://wa.me/${whatsappNumber}?text=${message}`,
+            "_blank"
+          )
         }
-        aria-label="Email Support"
-        className="p-3 rounded-full shadow-lg bg-blue-800 hover:bg-blue-700 text-white transition"
+        aria-label="WhatsApp Support"
+        className="p-4 rounded-full shadow-lg bg-green-500 hover:bg-green-600 text-white transition"
       >
-        <FaEnvelope size={18} />
+        <FaWhatsapp size={30} />
       </button>
 
-      <span className="text-sm text-black font-bold">
-        Email Us
+      <span className="text-sm text-black font-bold mb-8">
+        WhatsApp Us
       </span>
     </div>
   );

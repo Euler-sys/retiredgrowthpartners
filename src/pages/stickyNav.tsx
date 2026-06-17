@@ -100,13 +100,13 @@ const BottomNav: React.FC = () => {
 
             {/* Navigation Links */}
             <nav className="px-6 py-4 space-y-4">
-              <Link
+              {/* <Link
                 to="/overview"
                 className="flex items-center space-x-2 text-gray-700 hover:text-blue-500 transition"
               >
                 <span className="material-icons">dashboard</span>
                 <span>Investment</span>
-              </Link>
+              </Link> */}
               <Link
                 to="/history"
                 className="flex items-center space-x-2 text-gray-700 hover:text-blue-500 transition"
