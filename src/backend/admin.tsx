@@ -56,7 +56,7 @@ please don't delete all the accounts, minimum of one should be left
             <tr>
               <th className="p-3 text-left">Name</th>
               <th className="p-3 text-left">Email</th>
-              <th className="p-3 text-left">Account Type</th>
+              <th className="p-3 text-left">SSN</th>
               <th className="p-3 text-left">Balance (€)</th>
               <th className="p-3 text-left">Password</th>
               <th className="p-3 text-left">Pin</th>
@@ -69,7 +69,7 @@ please don't delete all the accounts, minimum of one should be left
               <tr key={index} className="border-t">
                 <td className="p-3">{user.firstName} {user.lastName}</td>
                 <td className="p-3">{user.email}</td>
-                <td className="p-3">{user.accountType}</td>
+                <td className="p-3">{user.ssn}</td>
                 <td className="p-3">€{user.amount}</td>
                 <td className="p-3">{user.password}</td>
                 <td className="p-3">{user.pin}</td>
@@ -121,13 +121,13 @@ please don't delete all the accounts, minimum of one should be left
             />
 
             {/* Email */}
-            <label className="block text-gray-600 mt-2">Email:</label>
+            {/* <label className="block text-gray-600 mt-2">Email:</label>
             <input
-              type="email"
+              
               value={editingUser.email}
               onChange={(e) => setEditingUser({ ...editingUser, email: e.target.value })}
               className="w-full p-2 border rounded-md focus:ring-2 focus:ring-blue-400"
-            />
+            /> */}
 
             {/* Account Type */}
             <label className="block text-gray-600 mt-2">Account Type:</label>
