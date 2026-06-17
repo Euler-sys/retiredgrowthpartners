@@ -368,7 +368,7 @@ const Dashboard = () => {
             {/* Card Body */}
             <div className="p-4">
               {/* Account Type */}
-              <p className="text-sm text-gray-500">{accountType}</p>
+              <p className="text-xl font-bold ">Savings</p>
 
               {/* Subtype and View Button */}
               <div className="flex justify-between items-center mt-1">
@@ -425,7 +425,7 @@ const Dashboard = () => {
                     Reference Number: <strong>2234-WN7823490</strong>
                   </p>
                   <p className="text-green-600 font-semibold mt-2">
-                    Status: Funds Available for Payout
+                    Status: Active
                   </p>
                 </div>
 
@@ -441,7 +441,9 @@ const Dashboard = () => {
                     </thead>
                     <tbody>
                       <tr>
-                        <td className="border px-3 py-2">2025-07-03</td>
+                       <td className="border px-3 py-2">
+  {new Date().toISOString().split("T")[0]}
+</td>
                         <td className="border px-3 py-2 text-green-600">
                           {" "}
                           Investment
@@ -454,7 +456,7 @@ const Dashboard = () => {
                         </td>
 
                         <td className="border px-3 py-2 text-green-600">
-                          Success
+                          Active
                         </td>
                       </tr>
                     </tbody>
