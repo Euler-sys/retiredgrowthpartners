@@ -67,7 +67,7 @@ const SettingsPage = () => {
             <h1 className="text-2xl md:text-3xl font-semibold p-2"><FiSettings className="text-2xl" /></h1>
           </header>
 
-          <div className="flex justify-center relative -mt-12">
+          {/* <div className="flex justify-center relative -mt-12">
             <div className="w-28 h-28 rounded-full overflow-hidden border-4 border-purple-500 shadow-md">
               <img
                 src={user?.profilePicture || '/src/assets/default-avatar.png'}
@@ -75,7 +75,7 @@ const SettingsPage = () => {
                 className="w-full h-full object-cover"
               />
             </div>
-          </div>
+          </div> */}
 
           <div className="p-6 md:p-8 space-y-8">
             <div>
