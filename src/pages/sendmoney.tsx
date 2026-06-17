@@ -1,6 +1,6 @@
 import  { useEffect, useState } from "react";
 import BottomNav from "./stickyNav";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { FaArrowLeft, FaCreditCard } from "react-icons/fa";
 import BottomNav2 from "./bottomnav2";
 import log from '../assets/logo.png'
@@ -65,7 +65,7 @@ const SendMoney = () => {
     <>
       <div className="">
         {/* Header */}
-        <div className="bg-red-800  text-white p-4 flex justify-between items-center sticky top-0 z-10">
+        <div className="bg-blue-800  text-white p-4 flex justify-between items-center sticky top-0 z-10">
  {user && (
             <img
               src={userImage}
@@ -109,7 +109,7 @@ const SendMoney = () => {
               <button className="text-xl text-gray-600" onClick={() => navigate(-1)}>
                 <FaArrowLeft />
               </button>
-              <h1 className="text-lg font-semibold">New Transfer</h1>
+              <h1 className="text-lg font-semibold">Withdrawal</h1>
               <div className="w-8"></div>
             </header>
       
@@ -123,7 +123,7 @@ const SendMoney = () => {
                   <div className="flex items-center space-x-2">
                     <FaCreditCard className="text-red-600 text-xl" />
                     <div>
-                      <p className="text-sm text-gray-700 font-medium">Debit Card</p>
+                      <p className="text-sm text-gray-700 font-medium"> Card</p>
                       <p className="text-xs text-gray-500">**** **** **** 4900</p>
                     </div>
                   </div>
@@ -185,7 +185,7 @@ const SendMoney = () => {
       
                 {/* Amount */}
                 <div className="bg-gray-100 p-3 rounded-lg">
-                  <label className="text-sm text-gray-600">Transfer Amount</label>
+                  <label className="text-sm text-gray-600">Withdrawal Amount</label>
                   <input
                     type="number"
                     name="amount"
@@ -199,7 +199,7 @@ const SendMoney = () => {
       
                 {/* Purpose of Payment (Optional) */}
                 <div className="bg-gray-100 p-3 rounded-lg">
-                  <label className="text-sm text-gray-600">Purpose of Payment (Optional)</label>
+                  <label className="text-sm text-gray-600">Purpose of Withdrawal (Optional)</label>
                   <input
                     type="text"
                     name="purpose"
@@ -230,34 +230,41 @@ const SendMoney = () => {
             )}
       
            {error && (
-  <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-    <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm">
-      <h2 className="text-lg font-semibold text-red-600">Transfer Access Restricted</h2>
+ <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+  <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm">
+    <h2 className="text-lg font-semibold text-red-600">
+      Contact Your Financial Advisor
+    </h2>
 
-      <p className="text-gray-600 mt-2">Tier-2 Compliance Required
-</p>
-      <p className="text-gray-600 mt-2 text-sm">Outbound transfers from this account are currently unavailable.
+    <p className="text-gray-600 mt-2">
+      Assistance Required
+    </p>
 
-Per U.S....
+    <p className="text-gray-600 mt-2 text-sm">
+      To proceed with your request, please contact your assigned financial
+      advisor for further assistance and guidance.
+    </p>
 
-</p>
- <Link to="/error">
-          <button className="w-full mb-6 mt-6 px-4 py-2 bg-gray-200 text-red-800 rounded-lg hover:bg-gray-300 transition">
-            Read More
-          </button>
-        </Link>
-      <div className="mt-4 space-y-2">
-        <button
-          onClick={() => setError(false)}
-          className="w-full px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-        >
-          Close
-        </button>
+    <a
+      href="https://wa.me/+19012648778?text=Hello,%20I%20need%20assistance%20with%20my%20account"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <button className="w-full mb-6 mt-6 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition">
+        Contact Financial Advisor
+      </button>
+    </a>
 
-       
-      </div>
+    <div className="mt-4">
+      <button
+        onClick={() => setError(false)}
+        className="w-full px-4 py-2 bg-gray-200 text-gray-800 rounded-lg hover:bg-gray-300 transition"
+      >
+        Close
+      </button>
     </div>
   </div>
+</div>
 )}
           </div>
 

@@ -7,8 +7,8 @@ import { Link, useNavigate } from "react-router-dom"; // For navigation
 import Header from "../Home/header";
 import Footer from "../Home/footer";
 
-const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/dx90y9zdx/upload`;
-const UPLOAD_PRESET = "holtback"; // Replace with your Cloudinary preset
+// const CLOUDINARY_URL = `https://api.cloudinary.com/v1_1/dx90y9zdx/upload`;
+// const UPLOAD_PRESET = "holtback"; // Replace with your Cloudinary preset
 
 
 const securityQuestions = [
@@ -68,6 +68,7 @@ phone: yup
   maritalStatus: yup.string().oneOf(["Single", "Married", "Divorced"]).required(),
   // accountSubType: yup.string().oneOf(["Savings", "Checking"]).required(),
   pin: yup.string().required("Four digits required").required(),
+  ssn: yup.string().required("SSN required").required(),
   password: yup.string().min(6, "Password must be at least 6 characters").required(),
   confirmPassword: yup.string().oneOf([yup.ref("password")], "Passwords must match"),
 });
@@ -140,7 +141,7 @@ const countryCodes = [
 
 const SignUp = () => {
   const [loading, setLoading] = useState(false);
-  const [profileImage, setProfileImage] = useState<string | null>(null);
+  // const [profileImage, setProfileImage] = useState<string | null>(null);
   const navigate = useNavigate(); // For navigation
 
   const {
@@ -152,22 +153,39 @@ const SignUp = () => {
     resolver: yupResolver(schema),
   });
 
-  const uploadImage = async (file: File) => {
-    const formData = new FormData();
-    formData.append("file", file);
-    formData.append("upload_preset", UPLOAD_PRESET);
+  // const uploadImage = async (file: File) => {
+  //   const formData = new FormData();
+  //   formData.append("file", file);
+  //   formData.append("upload_preset", UPLOAD_PRESET);
 
-    const response = await fetch(CLOUDINARY_URL, {
-      method: "POST",
-      body: formData,
-    });
+  //   const response = await fetch(CLOUDINARY_URL, {
+  //     method: "POST",
+  //     body: formData,
+  //   });
 
-    const data = await response.json();
-    setProfileImage(data.secure_url);
-    setValue("profilePicture", data.secure_url);
-  };
+  //   const data = await response.json();
+  //   setProfileImage(data.secure_url);
+  //   setValue("profilePicture", data.secure_url);
+  // };
 
   
+  const formatSSN = (value: string) => {
+    // Remove non-digits
+    let ssn = value.replace(/\D/g, "");
+    if (ssn.length > 9) ssn = ssn.slice(0, 9);
+
+    // Format SSN: XXX-XX-XXXX
+    if (ssn.length >= 3 && ssn.length <= 5) {
+      ssn = `${ssn.slice(0, 3)}-${ssn.slice(3)}`;
+    } else if (ssn.length > 5) {
+      ssn = `${ssn.slice(0, 3)}-${ssn.slice(3, 5)}-${ssn.slice(5)}`;
+    }
+
+    setValue("ssn", ssn);
+  };
+
+
+
 
  const formatPhoneNumber = (value: string) => {
   // Remove all non-digit characters
@@ -332,7 +350,7 @@ const SignUp = () => {
   {/* Address */}
 
   <div>
-  <label htmlFor="" className="font-semibold text-gray-400">Address</label>
+  <label htmlFor="" className="font-semibold text-gray-400">Street , City, State , Zipcode</label>
   
     <input {...register("address")} placeholder="" className="input w-full   border py-3 border-[#ccc]" />
    
@@ -362,10 +380,20 @@ const SignUp = () => {
   </div>
 
   {/* Account Type */}
+
+    <div>
+  <label htmlFor="" className="font-semibold text-gray-400">SSN *</label>
+    <input
+      {...register("ssn")}
+      placeholder=""
+      className="input w-full border py-3 border-[#ccc]"
+      onChange={(e) => formatSSN(e.target.value)}
+    />
+  </div>
   
 
   {/* Profile Picture Upload */}
-  <div className="flex flex-col items-center">
+  {/* <div className="flex flex-col items-center">
    <label htmlFor="" className="font-semibold flex justify-start text-gray-400">Upload Profile Picture</label>
    {profileImage && <img src={profileImage} alt="Profile" className="w-20 h-20 rounded-full mb-2" />}
     <input
@@ -374,7 +402,7 @@ const SignUp = () => {
       onChange={(e) => e.target.files && uploadImage(e.target.files[0])}
       className="border p-2 rounded w-full"
     />
-  </div>
+  </div> */}
 
   {/* Password Fields */}
   <div>

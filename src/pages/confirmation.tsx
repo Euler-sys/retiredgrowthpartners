@@ -3,12 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { IoMdWarning } from "react-icons/io";
 import logo from "../assets/logo.png";
 
-import defaultProfile from "../assets/person_1.jpg"; // Use this as a default image
+// import defaultProfile from "../assets/person_1.jpg"; // Use this as a default image
 
 const Confirmation: React.FC = () => {
   const [pin, setPin] = useState("");
   const [userName, setUserName] = useState<string>("");
-  const [userImage, setUserImage] = useState<string>(defaultProfile);
+  // const [userImage, setUserImage] = useState<string>(defaultProfile);
   const [userPin, setUserPin] = useState<string>("");
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -19,9 +19,9 @@ const Confirmation: React.FC = () => {
   useEffect(() => {
     const storedUser = localStorage.getItem("loggedInUser");
     if (storedUser) {
-      const { firstName , profilePicture, pin: storedPin } = JSON.parse(storedUser);
+      const { firstName , pin: storedPin } = JSON.parse(storedUser);
       setUserName( firstName || "User");
-      setUserImage(profilePicture || defaultProfile);
+      // setUserImage(profilePicture || defaultProfile);
       setUserPin(storedPin || "");
     } else {
       navigate("/login");
@@ -94,11 +94,11 @@ const Confirmation: React.FC = () => {
       ) : (
         <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md text-center z-10">
         <div className="m-auto w-[200px] flex justify-center mb-4"> <img src={logo} alt=""  /> </div>  
-          <img
+          {/* <img
             src={userImage}
             alt="User Profile"
             className="w-20 h-20 rounded-full mx-auto mb-4"
-          />
+          /> */}
           <div  className="flex gap-2 justify-center"> 
             
              <p className="mb-2 text-xl">Welcome Back</p> <h1 className="text-xl font-bold text-black mb-2"> {userName}</h1>
