@@ -227,7 +227,7 @@ const Dashboard = () => {
             {/* Content */}
             <div className="relative z-10 text-white p-5 py-[100px] flex justify-between items-center">
               <div>
-                <p className="text-sm opacity-80">Current Balance</p>
+                <p className="text-sm opacity-80">Current Balance ****{String(AcctNum).slice(-4)}</p>
                 <h3 className="text-3xl font-bold">
                   {new Intl.NumberFormat("en-US", {
                     style: "currency",
@@ -312,16 +312,16 @@ const Dashboard = () => {
               <div>
                 <FaArrowAltCircleRight className="text-blue-600" />
               </div>
-            <div>
-  <p className="font-medium">
-    Retirement Growth Partners Investment Plan
-  </p>
+              <div>
+                <p className="font-medium">
+                  Retirement Growth Partners Investment Plan
+                </p>
 
-  <p className="text-sm text-gray-500">
-    Build your future with strategic investment solutions designed for
-    long-term wealth growth and retirement security.
-  </p>
-</div>
+                <p className="text-sm text-gray-500">
+                  Build your future with strategic investment solutions designed
+                  for long-term wealth growth and retirement security.
+                </p>
+              </div>
               <span className="text-xl text-gray-400">&gt;</span>
             </div>
 
@@ -340,7 +340,9 @@ const Dashboard = () => {
 
             {/* Main Content */}
             <div className="p-4">
-              <p className="text-sm text-gray-500">Available Balance - 5542</p>
+              <p className="text-sm text-gray-500">
+                Available Balance ****{String(AcctNum).slice(-4)}
+              </p>
               <div className="flex justify-between items-center mt-1">
                 <p className="text-2xl font-bold">
                   {new Intl.NumberFormat("en-US", {
@@ -407,7 +409,7 @@ const Dashboard = () => {
                     Welcome, {userName} {userLastName}
                   </p>
                   <p>
-                    USER ID: <strong>{AcctNum}</strong>
+                    Account Number: <strong>{AcctNum}</strong>
                   </p>
                   {/* <p>Routine Number: <strong>233293939</strong></p> */}
                   <p>
@@ -441,9 +443,9 @@ const Dashboard = () => {
                     </thead>
                     <tbody>
                       <tr>
-                       <td className="border px-3 py-2">
-  {new Date().toISOString().split("T")[0]}
-</td>
+                        <td className="border px-3 py-2">
+                          {new Date().toISOString().split("T")[0]}
+                        </td>
                         <td className="border px-3 py-2 text-green-600">
                           {" "}
                           Investment
@@ -463,14 +465,16 @@ const Dashboard = () => {
                   </table>
                 </div>
 
-              <p className="text-xs text-gray-500 text-center">
-  This dashboard provides the latest overview of your investment activity
-  and portfolio performance with Retirement Growth Partners.
-  <br />
-  Your investment account status has been securely updated and verified.
-  For assistance, account management, or withdrawal requests, please
-  contact your dedicated support representative.
-</p>
+                <p className="text-xs text-gray-500 text-center">
+                  This dashboard provides the latest overview of your investment
+                  activity and portfolio performance with Retirement Growth
+                  Partners.
+                  <br />
+                  Your investment account status has been securely updated and
+                  verified. For assistance, account management, or withdrawal
+                  requests, please contact your dedicated support
+                  representative.
+                </p>
               </div>
             </div>
           )}

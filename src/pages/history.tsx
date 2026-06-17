@@ -12,6 +12,7 @@ const TransactionHistory = () => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
   const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
   const [userName, setUserName] = useState<string>("");
+  const [accountNumber, setAccountNum] = useState<string>("");
   const [userLastName, setLastName] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(true);
   const [visibleCount, setVisibleCount] = useState<number>(10);
@@ -27,6 +28,7 @@ const TransactionHistory = () => {
         setUserAmount(user.amount || 0);
         setUserName(user.firstName || "");
         setLastName(user.lastName || "");
+        setAccountNum(user.accountNumber || "");
 
          const history = await fetchHistoryForLoggedUser(user.email);
 setTransactions(history);
@@ -54,7 +56,9 @@ setLoading(false);
     <>
        <div className="max-w-5xl mx-auto bg-white rounded-xl  overflow-hidden mt-8 p-4 md:p-8">
       <div className="text-center mb-6">
-        <h2 className="text-lg md:text-xl font-semibold">ADV PLUS BANKING - 1234</h2>
+   <h2 className="text-lg md:text-xl font-semibold">
+  Retirement Growth Portfolio • ****{String(accountNumber).slice(-4)}
+</h2>
         <p className="text-2xl md:text-3xl font-bold mt-2">
           {new Intl.NumberFormat("en-US", {
             style: "currency",

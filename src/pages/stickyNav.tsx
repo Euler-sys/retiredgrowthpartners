@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { FaHome, FaBars, FaTimes, FaSignOutAlt,  } from "react-icons/fa";
-import person from '../assets/person_1.jpg'
+import { FaHome, FaBars, FaTimes, FaSignOutAlt } from "react-icons/fa";
+import person from "../assets/person_1.jpg";
 
 const BottomNav: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -30,7 +30,7 @@ const BottomNav: React.FC = () => {
       localStorage.clear();
       sessionStorage.clear();
       setIsLoading(false);
-      navigate('/');
+      navigate("/");
     }, 2000);
   };
 
@@ -87,14 +87,14 @@ const BottomNav: React.FC = () => {
               />
               <div className="text-center">
                 <h1 className="text-sm font-semibold">
-                  Hello <span className="uppercase">{userName.split(" ")[0]}!!</span>,
+                  Hello{" "}
+                  <span className="uppercase">{userName.split(" ")[0]}!!</span>,
                 </h1>
                 <span className="text-lg font-semibold">Welcome Back!</span>
-                
+
                 <p className="text-[13px] font-semibold">
-                  User ID: {AcctNum}
+                  Account Number: {AcctNum}
                 </p>
-               
               </div>
             </div>
 
@@ -145,7 +145,6 @@ const BottomNav: React.FC = () => {
             </nav>
           </div>
 
-          
           <div
             className="p-6 cursor-pointer flex items-center gap-3 text-lg text-blue-600 hover:text-red-800 font-semibold"
             onClick={handleLogout}
